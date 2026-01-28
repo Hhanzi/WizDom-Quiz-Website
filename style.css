@@ -48,7 +48,7 @@ body::before {
     linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.04) 96%);
 
   background-size: 40px 40px;
-  animation: gridMove 35s linear infinite;
+  animation: gridMove 20s cubic-bezier(0.7, 0, 0.8, 1) infinite;
 }
 
 body::after {
@@ -126,7 +126,7 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  flex-direction: row;
+  flex-direction: column;
   color: #fff;
 }
 
@@ -194,9 +194,45 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
-  width: 90vh;
+  height: 58vh;
+  width: 58vh;
   gap: 10px;
+}
+
+.carousel {
+ width: 90%;
+ border: none;
+ display: flex;
+ overflow-x: auto;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  animation: spin 20s linear infinite;
+  padding-right: 1em;
+}
+
+.card {
+  flex: 0 0 5em;
+  height: 10em;
+  width: 12em;
+  padding: 4em;
+  font-size: 1.5rem;
+  border-radius: .2em;
+  text-align: center;
+  align-content: center;
+}
+
+@keyframes spin {
+  from {translate: 0;}
+  to {translate: -100%;}
 }
 
 .about-section {
@@ -226,6 +262,10 @@ header {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.contacts-section::-webkit-scrollbar {
+  display: none;
 }
 
 .member-info {
