@@ -132,3 +132,35 @@ header {
   height: 80vh;
   width: 80vh;
 }
+
+.about-section {
+  padding: 100px 20px;
+  text-align: center;
+  color: #fff;
+  font-size: large;
+  text-shadow: #000 2px 2px;
+}
+
+.services-section {
+  padding: 100px 20px;
+  text-align: center;
+  color: #fff;
+  font-size: large;
+  text-shadow: #000 2px 2px;
+}
+
+.contacts-section {
+  padding: 100px 20px;
+  text-align: center;
+  color: #fff;
+  font-size: large;
+  text-shadow: #000 2px 2px;
+}
+
+.gallery-section {
+  padding: 100px 20px;
+  text-align: center;
+  color: #fff;
+  font-size: large;
+  text-shadow: #000 2px 2px;
+}
