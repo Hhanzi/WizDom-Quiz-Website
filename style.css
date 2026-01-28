@@ -207,7 +207,7 @@ header {
   text-shadow: #000 2px 2px;
 }
 
-.services-section {
+.modes-section {
   min-height: 100vh;
   padding: 10px;
   display: flex;
@@ -222,37 +222,45 @@ header {
 }
 
 .contacts-section {
-  max-width: 900px;
-  margin: 0 auto;
   padding: 80px 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  gap: 2rem;
 }
 
-.contacts-section h2 {
-  text-align: center;
+.member-info {
   color: #fff;
   text-shadow: #000 2px 2px;
   margin-bottom: 60px;
 }
 
 .member-left {
+  display: flex;
+  align-items: center;
   flex-direction: row;
-  gap: 50px;
-  min-width: 50vh;
-  align-items: flex-start;
+  gap: 1rem;
+  padding-left: 4em;
+  text-align: left;
 }
 
 .member-right {
+  display: flex;
+  align-items: center;
   flex-direction: row-reverse;
-  min-width: 50vh;
-  gap: 50px;
-  align-items: flex-end;
+  gap: 1rem;
+  padding-right: 4em;
+  text-align: right;
 }
 
-.gallery-section {
+.member-left img, .member-right img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.leaderboards-section {
   padding: 100px 20px;
   text-align: center;
   color: #fff;
