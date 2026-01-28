@@ -24,8 +24,9 @@ input, button, textarea, select {
   font: inherit;
 }
 
-
 body {
+  inset: 0;
+  z-index: -2;
   background-image: url("imgs/Hexagon.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -35,6 +36,39 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: "Bitcount Single", system-ui;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(transparent 95%, rgba(255,255,255,0.04) 96%),
+    linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.04) 96%);
+
+  background-size: 40px 40px;
+  animation: gridMove 35s linear infinite;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(255,47,179,0.06),
+    transparent 60%
+  );
+
+  animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 40px 40px, 40px 40px; }
 }
 
 header {
@@ -109,28 +143,60 @@ header {
 }
 
 .hero button {
+  position: relative;
   padding: 1em 2em;
+  width: 16rem;
+  height: 4rem;
   font-size: 18px;
-  color: #fff;
-  background-color: #b91a91;
-  border: none;
+  color: #FFFFFF;
+  background-color: #120B24;
   border-radius: 1000px;
+  border: none;
   cursor: pointer;
-  transition: .3s;
+  transition: color 0.5s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+@property --fill {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 0%;
+
+}
+
+.hero button::after {
+  position: absolute;
+  content: '';
+  inset: -3px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg,#FF2FB3, #A855F7,#38BDF8, #FF2FB3 var(--fill), transparent var(--fill));
+  transition: --fill 0.6s ease-in-out;
+}
+
+.hero button:hover {;
+  background: #1A1033;
+  color: #FDF4FF;
+  --fill: 100%;
+  
+}
+
+.hero button:active {
+  background: #120B24;
+  color: #FFFFFF;
+}
+
 .herostart {
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: double 5px #fff transparent;
-  height: 80vh;
-  width: 80vh;
+  height: 90vh;
+  width: 90vh;
+  gap: 10px;
 }
 
 .about-section {
@@ -142,19 +208,48 @@ header {
 }
 
 .services-section {
-  padding: 100px 20px;
+  min-height: 100vh;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  flex-direction: column;
   color: #fff;
   font-size: large;
   text-shadow: #000 2px 2px;
+  gap: 70px;
 }
 
 .contacts-section {
-  padding: 100px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contacts-section h2 {
   text-align: center;
   color: #fff;
-  font-size: large;
   text-shadow: #000 2px 2px;
+  margin-bottom: 60px;
+}
+
+.member-left {
+  flex-direction: row;
+  gap: 50px;
+  min-width: 50vh;
+  align-items: flex-start;
+}
+
+.member-right {
+  flex-direction: row-reverse;
+  min-width: 50vh;
+  gap: 50px;
+  align-items: flex-end;
 }
 
 .gallery-section {
@@ -163,4 +258,42 @@ header {
   color: #fff;
   font-size: large;
   text-shadow: #000 2px 2px;
+}
+
+.btn{
+  position: relative;
+  padding: 1em 2em;
+  width: 16rem;
+  height: 4rem;
+  font-size: 18px;
+  color: #FFFFFF;
+  background-color: #120B24;
+  border-radius: 1000px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn::after {
+  position: absolute;
+  content: '';
+  inset: -3px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg,#FF2FB3, #A855F7,#38BDF8, #FF2FB3 var(--fill), transparent var(--fill));
+  transition: --fill 0.6s ease-in-out;
+}
+
+.btn:hover {
+  background: #1A1033;
+  color: #FDF4FF;
+  --fill: 100%; 
+}
+
+.btn:active {
+  background: #120B24;
+  color: #FFFFFF;
 }
