@@ -11,7 +11,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 const links = document.querySelectorAll(".navbar a");
-links.forEach(link => {
+links.forEach((link) => {
   if (link.href === window.location.href) {
     link.classList.add("active");
   }
