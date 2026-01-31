@@ -32,6 +32,24 @@ select {
   font: inherit;
 }
 
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff2fb3;
+  border-radius: 10px;
+  box-shadow:
+    0 0 6px rgba(255, 47, 179, 0.6),
+    0 0 12px rgba(255, 47, 179, 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  box-shadow:
+    0 0 10px rgba(255, 47, 179, 0.8),
+    0 0 20px rgba(255, 47, 179, 0.6);
+}
+
 /*Background Style*/
 
 body {
@@ -50,15 +68,16 @@ body {
 
 body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
+  pointer-events: none;
 
   background:
     linear-gradient(transparent 95%, rgba(255, 255, 255, 0.04) 96%),
     linear-gradient(90deg, transparent 95%, rgba(255, 255, 255, 0.04) 96%);
 
   background-size: 40px 40px;
-  animation: gridMove 20s cubic-bezier(0.7, 0, 0.8, 1) infinite;
+  animation: gridMove 18s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 body::after {
@@ -77,15 +96,30 @@ body::after {
 }
 
 @keyframes gridMove {
-  from {
+  0% {
     background-position:
-      0 0,
-      0 0;
+      0px 0px,
+      0px 0px;
   }
-  to {
+  25% {
     background-position:
-      40px 40px,
-      40px 40px;
+      30px 15px,
+      15px 30px;
+  }
+  50% {
+    background-position:
+      0px 40px,
+      40px 0px;
+  }
+  75% {
+    background-position:
+      -30px 15px,
+      15px -30px;
+  }
+  100% {
+    background-position:
+      0px 0px,
+      0px 0px;
   }
 }
 
@@ -136,6 +170,12 @@ header {
 
 .navbar a:hover {
   color: #f70606;
+}
+
+.navbar a.active {
+  color: #ff2fb3;
+  font-weight: 700;
+  text-shadow: rgba(255, 44, 179, 0.35) 3px 3px;
 }
 
 /*Hero Section index.html*/
@@ -300,10 +340,6 @@ header {
   gap: 2rem;
 }
 
-.contacts-section::-webkit-scrollbar {
-  display: none;
-}
-
 .member-info {
   color: #fff;
   text-shadow: #000 2px 2px;
@@ -345,6 +381,49 @@ header {
   color: #fff;
   font-size: large;
   text-shadow: #000 2px 2px;
+}
+
+.leaderboards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.leaderboards-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.leaderboards-rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.leaderboards-number {
+  font-weight: bolder;
+  text-shadow: red 2px 2px;
+}
+
+.leaderboards-name {
+  margin: 10px;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.leaderboards-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /*Button Style*/
@@ -392,4 +471,33 @@ header {
 .btn:active {
   background: #120b24;
   color: #ffffff;
+}
+
+.btn-leaderboards {
+  position: relative;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 1em;
+  color: #ffffff;
+  background-color: #120b24;
+  box-shadow: #000 2px 2px 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 50ms ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-leaderboards:hover {
+  background: #1a1033;
+  color: #fdf4ff;
+  transform: scale(1.05);
+}
+
+.btn-leaderboards:active {
+  background: #291b4b;
+  color: #fdf4ff;
+  transform: scale(0.95);
 }
