@@ -385,7 +385,8 @@ header {
 
 .leaderboards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
   gap: 20px;
   margin-top: 40px;
 }
@@ -396,6 +397,19 @@ header {
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.leaderboards-item-big {
+  grid-column: 1 / -1;
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
